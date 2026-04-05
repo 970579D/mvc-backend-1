@@ -24,9 +24,9 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder
-                            .WithOrigins("http://localhost:4200") // specifying the allowed origin
-                            .WithMethods("GET", "POST", "PUT", "DELETE") // defining the allowed HTTP method
-                            .AllowAnyHeader(); // allowing any header to be sent
+                            .WithOrigins("http://localhost:4200")
+                            .WithMethods("GET", "POST", "PUT", "DELETE")
+                            .AllowAnyHeader();
                       });
 });
 
