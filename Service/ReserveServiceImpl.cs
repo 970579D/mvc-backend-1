@@ -73,8 +73,10 @@ public class ReserveServiceImpl : ReserveService
     public async Task<Reserve> _findLastQueue()
     {
         IEnumerable<Reserve> result = await _reserveContext.reserve.ToListAsync();
-        int? maxQueueNo = result.Max(e => e.QueueNo);
-        Reserve last = result.Where(e => e.QueueNo == maxQueueNo).FirstOrDefault();
+        if(result.Count() == 0) return null;
+
+        int maxQueueNo = result.Max(e => e.QueueNo);
+        Reserve last = result.Where(e => e.QueueNo == maxQueueNo)?.FirstOrDefault();
         return last;
     }
 
