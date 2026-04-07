@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ReserveService, ReserveServiceImpl>();
-builder.Services.AddTransient<ReserveService, ReserveServiceImpl>();
 
 builder.Services.AddDbContext<ReserveContext>(options =>
     options.UseMySql(
